@@ -5,8 +5,8 @@ from urllib.parse import parse_qs, urlparse
 
 from result import calculate_result
 
-VALID_USER = os.environ.get("APP_USER", "admin")
-VALID_PASSWORD = os.environ.get("APP_PASSWORD", "27january2006")
+VALID_USER = os.environ.get("APP_USER", "tomsmith")
+VALID_PASSWORD = os.environ.get("APP_PASSWORD", "SuperSecretPassword")
 
 LOGIN_PAGE = """<!DOCTYPE html>
 <html>
