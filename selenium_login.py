@@ -24,8 +24,8 @@ def login(driver, username, password):
 
 def main():
     options = webdriver.ChromeOptions()
-    if HEADLESS:
-        options.add_argument("--headless=new")
+    # if HEADLESS:
+    #     options.add_argument("--headless=new")
 
     driver = webdriver.Chrome(options=options)
     try:
