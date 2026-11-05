@@ -1,1 +1,5 @@
-This is the initial commit
+import python;
+run pytest.cmd@pytest.failtest success: 
+def:pytests.parametrise{
+    
+}
