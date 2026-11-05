@@ -1,0 +1,38 @@
+name: Result Calculation
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  run-result-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Run result calculation script
+        run: python app/result.py
+
+      - name: Run pytest
+        run: pytest tests -v
+
+      - name: Report success
+        if: success()
+        run: |
+          echo "Result calculation executed successfully"
+          echo "### ✅ Result calculation succeeded" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report failure
+        if: failure()
+        run: |
+          echo "Result calculation failed"
+          echo "### ❌ Result calculation failed" >> "$GITHUB_STEP_SUMMARY"
